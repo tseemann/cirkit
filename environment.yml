@@ -1,0 +1,10 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - perl >=5.32
+  - make
+  - bats-core
+  - zlib
+  - bzip2
+

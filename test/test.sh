@@ -1,0 +1,39 @@
+#!/usr/bin/env bats
+
+setup () {
+  name="cirkit"
+  bats_require_minimum_version 1.5.0
+  dir=$(dirname "$BATS_TEST_FILENAME")
+  cd "$dir"
+  exe="$dir/../bin/$name"
+}
+
+@test "Script syntax check" {
+  run -0 perl -c "$exe"
+}
+@test "Version" {
+  run -0 $exe -v
+  [[ "$output" =~ "$name " ]]
+}
+@test "Help" {
+  run -0 $exe -h
+  [[ "$output" =~ "plasmid" ]]
+}
+@test "Ciiation" {
+  run -0 $exe -C
+  [[ "$output" =~ "Seemann" ]]
+}
+@test "No parameters" {
+  run ! $exe
+}
+@test "Bad option" {
+  run ! $exe --doesnotexist
+}
+@test "Null input" {
+  run ! $exe /dev/null
+  [[ "$output" =~ "ERROR" ]]
+}
+@test "Quiet mode -q" {
+  run -0 $exe -q test1.fna
+  [[ ! "$output" =~ "Processing" ]]
+}
