@@ -6,7 +6,7 @@
 
 # cirkit
 
-Identify signal peptides in protein sequnces
+Trim concatendated Flye plasmid contigs to a single copy
 
 ## Description
 
