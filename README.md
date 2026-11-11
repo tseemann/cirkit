@@ -10,18 +10,17 @@ Identify signal peptides in protein sequnces
 
 ## Description
 
-I want to make an free, unencumbered tool to
-identify signal peptides in protein sequences.
-The existing tools are either not open source,
-require an academic licence, only have a 
-webserver, or not installable in Bioconda.
-
-Ziggypep uses a very simplistic method 
-which achieves
-1026/1320 (72%) on a 
-[positive test set](https://github.com/tseemann/cirkit/blob/main/test/pos.faa)
-and 1234/1334 (93%) on a
-[negative test set](https://github.com/tseemann/cirkit/blob/main/test/neg.faa.bz2).
+When assembling bacterial genomes from 
+long read ONT data, the Flye assembler
+will often generate single contig plasmids,
+but they are longer than they should be.
+This is due to various reasons, but incoudes
+read overhang and lack of trimming of 
+circular elements in the graph. This results
+in concatemers of the plasmid, where you will
+get a contig with 2-3 tandem repeats of the
+true plasmid. This software will automatically
+extract the best single copy from that output.
 
 ## Installation
 
@@ -32,22 +31,10 @@ conda install -c bioconda -c conda-forge cirkit
 ## Quick start
 
 ```
-% cirkit test/test.faa.gz
+% cirkit test/test1.fna
 
-WP_456262590.1  0
-WP_407478045.1  14      MDTLQAIILAIVEG
-WP_456262591.1  0
-WP_456262592.1  38      MKQLPTITDSYKKEVQKSVLSIILFFTVYFILILFSLA
-WP_249063066.1  0
-WP_016200366.1  0
-WP_078792968.1  20      MKKIAVLITMLMTGIIFAQV
+### FIXME ###
 
-# only list those with signal peptides
-% cirkit -s test/test.faa.gz
-
-WP_407478045.1  14      MDTLQAIILAIVEG
-WP_456262592.1  38      MKQLPTITDSYKKEVQKSVLSIILFFTVYFILILFSLA
-WP_078792968.1  20      MKKIAVLITMLMTGIIFAQV
 ```
 
 ## Usage
@@ -84,7 +71,7 @@ FIXME.
 
 ## References
 
-* [Circlator]](https://github.com/sanger-pathogens/circlator)
+* [Circlator](https://github.com/sanger-pathogens/circlator)
 * [Flye](https://github.com/mikolmogorov/Flye)
 
 ## Feedback
