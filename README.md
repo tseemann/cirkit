@@ -10,6 +10,8 @@ Trim concatendated Flye plasmid contigs to a single copy
 
 ## Description
 
+<IMG SRC="cirkit.png" ALIGN="right" WIDTH="256" ALT="cirkit logo">
+
 When assembling bacterial genomes from 
 long read ONT data, the Flye assembler
 will often generate single contig plasmids,
@@ -36,43 +38,11 @@ conda install -c bioconda -c conda-forge cirkit
 ### FIXME ###
 
 ```
-
-## Usage
-
-### Input
-
-You must provide a single-conmtig plasmid DNA FASTA files:
-```
->Plasmid
-CACCGTGAAGTTATGATCAACGATGTAGTCCACATCATTGTCGAAATGTGCGTTCAGCTA
-GTCTTCGGTGTTTTCTGCTTTATTTCTAGCGGCGATTCTCGCGTCTGCCCATGCGGCAGA
-CTTTTTAGCCTGTTCTCGTTGTTCTTCGGTTGAAGACTCGCTGTTGAGAACTTTGTTGCT
-...
-```
-They can be compressed with `.gz` or `.bz2`.
-You can provide multiple files if you like.
-```
-% cirkit test/test.ffa.gz test/pos.faa test/neg.faa.bz2 
-```
-Each sequence (not file) will be treated independently.
-
-### Output
-
-FIXME.
-
-### Options
-
-```
-  -h       Print this help
-  -v       Print version and exit
-  -C       Show citation and exit
-  -q       No output while running, only errors
-```
-
 ## References
 
 * [Circlator](https://github.com/sanger-pathogens/circlator)
 * [Flye](https://github.com/mikolmogorov/Flye)
+* [Autocycler trimmer](https://github.com/rrwick/Autocycler/tree/main/pipelines/Single_assembly_trimming_by_Ryan_Wick)
 
 ## Feedback
 
